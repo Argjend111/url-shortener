@@ -1,0 +1,201 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fdfdfd;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside {
+  width: 320px;
+  background: #f2f2f2;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.short-link {
+  text-decoration: underline;
+  color: #2a5bd7; 
+  margin-right: 13px;
+}
+
+.icon-btn.delete {
+  color: #000; 
+}
+
+.icon-btn.delete:hover {
+  background: #e0e0e0; 
+  color: #000;
+}
+
+
+.logo {
+  margin-top: 20px;
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.links-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+}
+
+.links-container h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.links-container ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.links-container li {
+  margin: 12px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.link-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+aside a {
+  text-decoration: none;
+  color: #2a5bd7;
+  word-break: break-all;
+  font-weight: 500;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  position: relative;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.icon-btn:hover {
+  background: #eaeaea;
+  transform: scale(1.1);
+}
+
+.click-count {
+  font-size: 14px;
+  color: #9bb7f4;
+  text-align: center;
+
+  margin-top: 4px;
+
+  display: block;
+}
+
+.icon-btn i {
+  pointer-events: none;
+}
+
+.delete {
+  color: #d33;
+}
+
+.delete:hover {
+  background: #f7d7d7;
+  color: #a11;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.icon-btn:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
+
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+main h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.shorten-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shorten-form input,
+.shorten-form select,
+.shorten-form button {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.shorten-form button {
+  background: #7d2bae;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.shorten-form button:hover {
+  background: #5d2182;
+  transform: scale(1.05);
+}

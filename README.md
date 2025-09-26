@@ -2,7 +2,7 @@ URL Shortener
 
 This project is a simple URL shortener where you can paste a long link, choose an expiration time if you want, and get back a short link that can also be opened through a QR code.
 
-To make it work you first need to install XAMPP on your computer and make sure that both Apache and MySQL are running. Once XAMPP is ready, open phpMyAdmin from your browser and create a database called url_shortener. Inside the project there is a file called database.sql in the sql folder which contains all the tables needed for the application, so you just import that file into the database you created.
+To make it work you first need to install XAMPP on your computer and make sure that both Apache and MySQL are running. Once XAMPP is ready, open phpMyAdmin(http://localhost/phpmyadmin) from your browser and create a database called url_shortener. Inside the project there is a file called database.sql in the sql folder which contains all the tables needed for the application, so you just import that file into the database you created.
 
 After the database is ready you place the project folder url-shortener inside the htdocs directory of XAMPP, which is usually located in C:\xampp\htdocs.
 

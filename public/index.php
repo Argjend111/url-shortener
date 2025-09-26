@@ -15,6 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare("INSERT INTO links (original_url, short_code, expires_at) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $url, $shortCode, $expiresAt);
     $stmt->execute();
+
+    header("Location: index.php");
+    exit;
 }
 
 $result = $conn->query("SELECT * FROM links ORDER BY id DESC");
@@ -49,9 +52,9 @@ $expirations = $expResult->fetch_all(MYSQLI_ASSOC);
                                     https://shorturl.co/<?= $link['short_code'] ?>
                                 </a>
 
-                                <a href="delete.php?id=<?= $link['id'] ?>" class="icon-btn delete">
-                                <i class="fa-regular fa-trash-can"></i>
-
+                                <a href="delete.php?id=<?= $link['id'] ?>" class="icon-btn delete"
+                                    onclick="return confirm('Are you sure you want to delete this link?');">
+                                    <i class="fa-regular fa-trash-can"></i>
                                     <span class="tooltip">Delete link</span>
                                 </a>
 
@@ -59,7 +62,7 @@ $expirations = $expResult->fetch_all(MYSQLI_ASSOC);
                                     <i class="fa-solid fa-qrcode"></i>
                                     <span class="tooltip">Show QR code</span>
                                 </a>
-                               
+
                                 <span class="click-count" data-expires="<?= $link['expires_at'] ?>">
                                     This link has been clicked <?= $link['clicks'] ?> times.
                                 </span>
@@ -71,26 +74,26 @@ $expirations = $expResult->fetch_all(MYSQLI_ASSOC);
             </div>
         </aside>
 
-      <main>
-    <h1>URL Shortener</h1>
-  <form method="POST" class="shorten-form">
-    <input type="url" name="url" placeholder="Paste the URL to be shortened" required>
+        <main>
+            <h1>URL Shortener</h1>
+            <form method="POST" class="shorten-form">
+                <input type="url" name="url" placeholder="Paste the URL to be shortened" required>
 
-    <select name="expiry">
-        <option value="" >Add expiration date</option>
-        <?php foreach ($expirations as $exp): ?>
-            <option value="<?= htmlspecialchars($exp['minutes']) ?>">
-                <?= htmlspecialchars($exp['label']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+                <select name="expiry">
+                    <option value="">Add expiration date</option>
+                    <?php foreach ($expirations as $exp): ?>
+                        <option value="<?= htmlspecialchars($exp['minutes']) ?>">
+                            <?= htmlspecialchars($exp['label']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
 
-    <button type="submit">Shorten URL</button>
-</form>
+                <button type="submit">Shorten URL</button>
+            </form>
 
-</main>
+        </main>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

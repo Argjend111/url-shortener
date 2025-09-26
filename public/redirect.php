@@ -13,7 +13,7 @@ if ($link) {
         echo "Link expired!";
         exit;
     }
-    $conn->query("UPDATE links SET clicks = clicks + 1 WHERE id=" . $link['id']);
+   
     header("Location: " . $link['original_url']);
     exit;
 } else {
